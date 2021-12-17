@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
-const apikey = "3B0A32FBF369D3465B9CCAD619F8A54A";
-const steamUserId = "76561198364413370";
-const apiUrl = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=";
+const apiUrl = "https://if2ewrxrm6.execute-api.eu-central-1.amazonaws.com/live/";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -32,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   getOwnedGames(): Observable<any[]> {
-    return this.http.get<any[]>(apiUrl + apikey + "&steamId=" + steamUserId, httpOptions)
+    return this.http.get<any[]>(apiUrl, httpOptions)
   }
 
 }
