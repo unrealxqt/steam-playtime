@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
-const apikey = "852C5FC1C2C03B2470608ECA0686A8BA";
+const apikey = "3B0A32FBF369D3465B9CCAD619F8A54A";
 const steamUserId = "76561198364413370";
 const apiUrl = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=";
 const httpOptions = {
@@ -10,7 +10,8 @@ const httpOptions = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true'
   })
 };
 
