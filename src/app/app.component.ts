@@ -8,7 +8,7 @@ const httpOptions = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
-    'Access-Control-Allow-Origin': 'http://api.steampowered.com',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'
   })
