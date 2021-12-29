@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
   data: Game[]
   titles: GameDetails[] = []
+  sortedTitles: GameDetails[] = []
   ngOnInit() {
     this.getOwnedGames().subscribe(response => {
       this.data = response["response"]["games"]
@@ -35,14 +36,12 @@ export class AppComponent implements OnInit {
           let currentGameDetails: GameDetails = {
             appId: item.appid,
             name: details[item.appid]["data"]["name"],
-            playtimeForever: item.playtime_forever
+            playtimeForever: roundTo(item.playtime_forever/60, 0)
           };
           this.titles.push(currentGameDetails);
         })
       })
     })
-    console.log(this.titles);
-
   }
 
   getOwnedGames(): Observable<any[]> {
@@ -54,3 +53,12 @@ export class AppComponent implements OnInit {
   }
 
 }
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
+const roundTo = function(num: number, places: number) {
+  const factor = 10 ** places;
+  return Math.round(num * factor) / factor;
+};
