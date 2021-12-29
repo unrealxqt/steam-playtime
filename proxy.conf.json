@@ -1,0 +1,19 @@
+{
+    "/api": {
+      "target": "https://if2ewrxrm6.execute-api.eu-central-1.amazonaws.com/live/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+	   }
+    },
+    "/details/*": {
+      "target": "https://store.steampowered.com/api/appdetails/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/details/": ""
+        }
+    }
+
+}

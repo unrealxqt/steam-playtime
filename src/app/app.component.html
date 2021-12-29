@@ -1,1 +1,14 @@
 <h1>Steam Playtime Tracker</h1>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Playtime</th>
+        </tr>
+    </thead>
+  <tr *ngFor="let game of titles">
+    <td>{{ game.name }}</td>
+    <td>{{ game.playtimeForever }}</td>
+  </tr>
+</table>
