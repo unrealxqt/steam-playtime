@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   }
 
   getOwnedGames(): Observable<any[]> {
-    return this.http.get<any[]>(apiUrl)
+    return this.http.get<any[]>(apiUrl, httpOptions)
   }
 
   getGameDetails(appId: number): Observable<any> {
