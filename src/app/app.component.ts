@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { Game } from './game';
 import { GameDetails } from './game-details';
 
-const apiUrl = "https://steam-playtime.herokuapp.com/api";
-const gameDetailsApiUrl = "https://steam-playtime.herokuapp.com/details/?appids=";
+const apiUrl = "https://if2ewrxrm6.execute-api.eu-central-1.amazonaws.com/live/";
+const gameDetailsApiUrl = "https://store.steampowered.com/api/appdetails/?appids=";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
