@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { Game } from './game';
 import { GameDetails } from './game-details';
 
-const apiUrl = "https://if2ewrxrm6.execute-api.eu-central-1.amazonaws.com/live/";
+const APIKEY = "B31DA39EF46BD64EF39BF7813E746FA5"
+const STEAMID = "76561198364413370"
+const apiUrl = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + APIKEY + "&steamid=" + STEAMID;
 const gameDetailsApiUrl = "https://store.steampowered.com/api/appdetails/?appids=";
 const httpOptions = {
   headers: new HttpHeaders({
@@ -36,7 +38,7 @@ export class AppComponent implements OnInit {
           let currentGameDetails: GameDetails = {
             appId: item.appid,
             name: details[item.appid]["data"]["name"],
-            playtimeForever: roundTo(item.playtime_forever/60, 0)
+            playtimeForever: roundTo(item.playtime_forever / 60, 0)
           };
           this.titles.push(currentGameDetails);
         })
@@ -58,7 +60,7 @@ function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
-const roundTo = function(num: number, places: number) {
+const roundTo = function (num: number, places: number) {
   const factor = 10 ** places;
   return Math.round(num * factor) / factor;
 };
